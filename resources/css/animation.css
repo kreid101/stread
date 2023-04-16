@@ -1,0 +1,13 @@
+@keyframes scaling {
+    0% {scale: 1;}
+    50% {scale: 2}
+    100% {scale: 1;}
+}
+.elipse
+{
+    animation: scaling;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+}
+
