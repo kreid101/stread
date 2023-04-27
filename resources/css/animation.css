@@ -11,3 +11,14 @@
 
 }
 
+#line {
+    stroke-dashoffset: 0;
+    animation: dash 30s linear forwards infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -300;
+    }
+}
+

@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>{{ $title ?? 'Stread' }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="bg-stone-100">
 <div class="h-20 flex relative px-10">
@@ -48,5 +48,6 @@
     </div>
 </div>
 <slot/>
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </body>
 </html>
