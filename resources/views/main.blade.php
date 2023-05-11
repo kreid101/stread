@@ -30,15 +30,10 @@
         <span x-text="startpos"></span> <span>/</span> <span x-text="scrollpos"></span>
     </div>
     <button x-on:click="info()">info</button>
-    <div id="newItems" class="flex gap-4 overflow-scroll scroll-smooth	 ">
-        <div class="min-w-[20%] bg-gray-200">one</div>
-        <div class="min-w-[20%]  bg-gray-200">two</div>
-        <div class="min-w-[20%] bg-gray-200">three</div>
-        <div class="min-w-[20%] bg-gray-200">four</div>
-        <div class="min-w-[20%] bg-gray-200">five</div>
-        <div class="min-w-[20%] bg-gray-200">six</div>
-        <div class="min-w-[20%] bg-gray-200">seven</div>
-        <div class="min-w-[20%] bg-gray-200">eigth</div>
+    <div id="newItems" class="flex gap-4 overflow-scroll scroll-smooth">
+        @foreach($hits as $hit)
+        <x-item-card :item="$hit"></x-item-card>
+        @endforeach
     </div>
 </div>
 

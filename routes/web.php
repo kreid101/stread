@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
+Route::get('/',[MainController::class,'index']);
+Route::get('item/{id}',[\App\Http\Controllers\ItemController::class,'index']);
+Route::get('/ses',function (){
+   return session()->getId();
+});
+Route::get('/get_items',function(){
+    unserialize(Redis::get('cart_'.session()->getId())) ? $this->items=unserialize(Redis::get('cart_'.session()->getId())) : null;
 });

@@ -36,11 +36,15 @@ class SizesRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\AttachAction::make()->form([ Forms\Components\Select::make('recordId')->options(Sizes::all()->pluck('size','id')),Forms\Components\TextInput::make('quntity')->label('количество')])->preloadRecordSelect()
+                Tables\Actions\AttachAction::make()->form([ Forms\Components\Select::make('recordId')->options(Sizes::all()->
+                pluck('size','id')),Forms\Components\TextInput::make('quntity')->label('количество')])->
+                preloadRecordSelect(),
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DetachAction::make(),
+
 
             ])
             ->bulkActions([

@@ -13,6 +13,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\ColorPicker;
@@ -39,7 +40,7 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('item_name')
             ])
             ->filters([
                 //
@@ -56,7 +57,8 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\SizesRelationManager::class
+            RelationManagers\SizesRelationManager::class,
+            RelationManagers\ImageRelationManager::class
         ];
     }
 
