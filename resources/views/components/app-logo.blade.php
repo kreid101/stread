@@ -1,5 +1,5 @@
-
-    <svg class="max-h-full max-w-full" version="1.0" xmlns="http://www.w3.org/2000/svg"
+<a  class="h-20 w-32 flex" href="/">
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 1362.000000 688.000000"
          preserveAspectRatio="xMidYMid meet">
 
@@ -270,3 +270,4 @@ m-45 -18 c-15 -10 -24 -24 -22 -34 4 -20 -24 -25 -30 -6 -6 16 34 56 57 57 18
             <path d="M1120 1660 l0 -90 5615 0 5615 0 0 90 0 90 -5615 0 -5615 0 0 -90z"/>
         </g>
     </svg>
+</a>

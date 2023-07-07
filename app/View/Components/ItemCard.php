@@ -12,7 +12,7 @@ class ItemCard extends Component
      * @return void
      */
     public function __construct(
-        public ?object $item=null
+        public  $item=null
 
     )
     {

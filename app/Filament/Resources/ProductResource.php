@@ -33,6 +33,7 @@ class ProductResource extends Resource
                 Forms\Components\Select::make('brand_id')->label('brand')->options(Brands::all()->pluck('brand_name','id')),
                 Forms\Components\TextInput::make('price')->required(),
                 Forms\Components\TextInput::make('about_id')->required(),
+                Forms\Components\TextInput::make('gender')->required(),
             ]);
     }
 
@@ -58,7 +59,8 @@ class ProductResource extends Resource
     {
         return [
             RelationManagers\SizesRelationManager::class,
-            RelationManagers\ImageRelationManager::class
+            RelationManagers\ImageRelationManager::class,
+            RelationManagers\CategoryRelationManager::class
         ];
     }
 

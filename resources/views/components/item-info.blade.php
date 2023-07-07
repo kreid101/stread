@@ -1,6 +1,7 @@
 <div class="flex-1" x-data="size_choose">
     @foreach($item->sizes as $size)
-        <button :class="$el.id == size.id ? 'bg-red-200' : ''" :id="$id('size-btn')" x-on:click="choose({{$size}})" x-ref="size_btn">{{$size->size}}</button>
+
+        <button :class="$el.id == size.id ? 'bg-red-200' : ''" :id="$id('size-btn')" x-on:click="choose({{$size}})" x-ref="size_btn">{{$size->size}} </button>
     @endforeach
     <div >
         <button x-on:click="addCart">add to cart</button>

@@ -25,6 +25,17 @@ class Cart extends Component
     {
         return view('livewire.cart');
     }
+    function is_empty()
+    {
+        if($this->item_count > 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
     public function add($item)
     {

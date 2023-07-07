@@ -1,9 +1,18 @@
 <div x-data="size_choose">
-    @foreach($item->sizes as $size)
-        <button :class="$el.id == active_btn ? 'bg-red-200' : ''" :id="$id('size_btn')"  x-on:click="makeActive({{$size}},$el.id)">{{$size->size}}</button>
-    @endforeach
-    <div>
-        <button :disabled="curr_size == null || CheckInCart"  class="bg-green-300 p-2 rounded disabled:opacity-75" x-on:click="sendToServer" x-text="CheckInCart()  ? 'Добавленно' : 'В корзину'"></button>
+    <div class="flex justify-center flex-col">
+        <h4 class="text-lg mx-auto mb-2">Размеры</h4>
+        <div class="justify-center flex border-b mx-4 gap-2">
+            @foreach($item->sizes as $size)
+                <button class="rounded p-2" :class="$el.id == active_btn ? 'bg-black text-white' : 'bg-zinc-300'" :id="$id('size_btn')"  x-on:click="makeActive({{$size}},$el.id)">{{$size->size}} | {{$size->region}}</button>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="flex justify-center mt-4 flex-col">
+        <template x-if="curr_size == null">
+            <div class="text-red-600 flex justify-center">Выберите размер</div>
+        </template>
+        <button :disabled="curr_size == null || CheckInCart"  class="bg-black text-white  rounded w-full py-2  text-2xl" x-on:click="sendToServer" x-text="CheckInCart()  ? 'Добавленно' : 'В корзину'"></button>
     </div>
 
         <script>

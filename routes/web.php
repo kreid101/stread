@@ -17,9 +17,7 @@ use App\Http\Controllers\MainController;
 
 Route::get('/',[MainController::class,'index']);
 Route::get('item/{id}',[\App\Http\Controllers\ItemController::class,'index']);
-Route::get('/ses',function (){
-   return session()->getId();
-});
-Route::get('/get_items',function(){
-    unserialize(Redis::get('cart_'.session()->getId())) ? $this->items=unserialize(Redis::get('cart_'.session()->getId())) : null;
-});
+Route::get('/get_brands',[\App\Http\Controllers\ItemController::class,'get_brands']);
+Route::get('/search',\App\Http\Livewire\SearchPage::class);
+Route::get('brand/{brand}',\App\Http\Livewire\BrandSearch::class);
+

@@ -23,7 +23,9 @@ class CategoriesResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('cat_name')
+                Forms\Components\TextInput::make('cat_name'),
+                Forms\Components\TextInput::make('type'),
+
             ]);
     }
 
