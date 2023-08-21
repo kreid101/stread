@@ -11,15 +11,20 @@ class Cart extends Component
 {
 
     protected $listeners = ['item_added' => 'add'];
-    public $items=[];
+    public $items = [];
     public $item_count = null;
 
 
     public function mount()
     {
-        unserialize(Redis::get('cart_'.session()->getId())) ? $this->items=unserialize(Redis::get('cart_'.session()->getId())) : null;
-        $this->item_count=count($this->items);
+        unserialize(Redis::get('cart_' . session()->getId())) ? $this->items = unserialize(Redis::get('cart_' . session()->getId())) : null;
+        $this->item_count = count($this->items);
 
+    }
+
+    public function check()
+    {
+        return false;
     }
     public function render()
     {
@@ -66,10 +71,20 @@ class Cart extends Component
             return $items['size']==$size['size'] && $items['id']==$size['pivot']['items_id'] ;
         },$this->items));
     }
-    function incr($id)
+    function incr($id,$quant=2)
     {
-     $this->items[$id]['quant']+=1;
+     $this->items[$id]['quant'] < $quant ? $this->items[$id]['quant']+=1 : null ;
      $this->updRedis();
     }
+    function decr($id)
+    {
+        $this->items[$id]['quant'] > 1 ? $this->items[$id]['quant'] -=1 : $this->deleteItem($id);
 
+        $this->updRedis();
+    }
+    function deleteItem($id)
+    {
+        unset($this->items[$id]);
+
+    }
 }

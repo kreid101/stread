@@ -19,6 +19,7 @@
             window.addEventListener('alpine:init',()=>{
 
                 Alpine.data('size_choose',()=>({
+
                     curr_size: null,
                     active_btn:null,
                     makeActive:function (item,id)
@@ -33,7 +34,7 @@
                     },
                     CheckInCart: function ()
                     {
-                        if(this.curr_size != null && Alpine.store('cart').cart_items!= null)
+                        if(this.curr_size != null && Alpine.store('cart').cart_items!= null )
                         {
                             return  Alpine.store('cart').cart_items.map((item)=>{ return this.curr_size.size == item.size && this.curr_size.pivot.items_id == item.id }).includes(true)
                         }
@@ -47,7 +48,9 @@
                 Alpine.store('cart').cart_items=@js($cart);
             })
             Livewire.on('upd_cart',items=>{
-                Alpine.store('cart').cart_items=items
+                Alpine.store('cart').cart_items=Object.values(items)
+                console.log(Object.values(items))
+
             })
         </script>
 </div>

@@ -8,18 +8,14 @@ use App\Models\Items;
 class Search extends Component
 {
     public $search_input;
-    public function double()
+
+    public function results()
     {
-        if($this->search_input != null)
+        if($this->search_input != '')
         {
-            return $orders = Items::search($this->search_input)->get();
-        }
-        else
-        {
-            return $orders = Items::All()->random(1);
-        }
+            return Items::search($this->search_input)->get();
 
-
+        }
     }
     public function render()
     {

@@ -1,5 +1,5 @@
-<div class="flex w-full gap-4">
-    <div class="flex flex-col" x-data="image">
+<div class="flex w-1/2 gap-4">
+    <div class="flex flex-col flex-1" x-data="image">
         <div class="flex flex-1">
             <img class="w-full max-w-lg" :src="'../storage/'+cur_link" alt="error">
         </div>

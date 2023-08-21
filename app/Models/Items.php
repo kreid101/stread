@@ -11,13 +11,16 @@ use Laravel\Scout\Searchable;
 class Items extends Model
 {
     use Searchable;
-    protected $guarded=[];
-    protected $with=['images','brand:id,brand_name','sizes','category'];
+
+    protected $guarded = [];
+    protected $with = ['images', 'brand:id,brand_name', 'sizes', 'category'];
     use HasFactory;
+
     public function sizes()
     {
-        return $this->belongsToMany(sizes::class,'items_sizes')->withPivot('quntity');
+        return $this->belongsToMany(Sizes::class, 'items_sizes')->withPivot('quntity');
     }
+
     public function images()
     {
         return $this->hasMany(Images::class,'item_id');
