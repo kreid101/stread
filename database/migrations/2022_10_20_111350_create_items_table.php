@@ -21,13 +21,13 @@ return new class extends Migration
             $table->unsignedBigInteger('color_id');
             $table->foreign('color_id')->references('id')->on('colors');
             $table->string('price',16);
-            $table->unsignedBigInteger('about_id');
-            $table->foreign('about_id')->references('id')->on('about_items');
+            $table->string('table_size')->nullable();
+            $table->integer('item_code')->nullable();
             $table->timestamps();
 
         });
     }
-    
+
 
     /**
      * Reverse the migrations.

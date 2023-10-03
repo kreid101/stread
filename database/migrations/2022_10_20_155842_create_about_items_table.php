@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->text('desc')->nullable();
             $table->text('composition')->nullable();
-            $table->string('code',64);
+            $table->string('code',64)->nullable();
+            $table->string('size_table')->nullable();
+            $table->unsignedBigInteger('item_id')->nullable();
+            $table->foreign('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->timestamps();
         });
     }

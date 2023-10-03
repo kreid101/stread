@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BrandsResource\Pages;
-use App\Filament\Resources\BrandsResource\RelationManagers;
-use App\Models\Brands;
+use App\Filament\Resources\AboutItemResource\Pages;
+use App\Filament\Resources\AboutItemResource\RelationManagers;
+use App\Models\AboutItem;
+use App\Models\Items;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,9 +14,9 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BrandsResource extends Resource
+class AboutItemResource extends Resource
 {
-    protected static ?string $model = Brands::class;
+    protected static ?string $model = AboutItem::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -23,8 +24,12 @@ class BrandsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('brand_name'),
-                Forms\Components\MarkdownEditor::make('brand_desc')
+                Forms\Components\Select::make('item_id')->options(Items::all()->pluck('item_name','id'))->required(),
+                Forms\Components\RichEditor::make('about_desc'),
+                Forms\Components\RichEditor::make('composition'),
+                Forms\Components\TextInput::make('code'),
+                Forms\Components\TextInput::make('size_table')->Datalist(['Обувь']),
+
             ]);
     }
 
@@ -32,7 +37,7 @@ class BrandsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('brand_name')
+                //
             ])
             ->filters([
                 //
@@ -55,9 +60,9 @@ class BrandsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrands::route('/'),
-            'create' => Pages\CreateBrands::route('/create'),
-            'edit' => Pages\EditBrands::route('/{record}/edit'),
+            'index' => Pages\ListAboutItems::route('/'),
+            'create' => Pages\CreateAboutItem::route('/create'),
+            'edit' => Pages\EditAboutItem::route('/{record}/edit'),
         ];
     }
 }

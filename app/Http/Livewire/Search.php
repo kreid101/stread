@@ -14,7 +14,6 @@ class Search extends Component
         if($this->search_input != '')
         {
             return Items::search($this->search_input)->get();
-
         }
     }
     public function render()

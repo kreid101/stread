@@ -8,5 +8,5 @@ Route::get('item/{id}',[\App\Http\Controllers\ItemController::class,'index']);
 Route::get('/get_brands',[\App\Http\Controllers\ItemController::class,'get_brands']);
 Route::get('/search',\App\Http\Livewire\SearchPage::class);
 Route::get('brand/{brand}',\App\Http\Livewire\BrandSearch::class);
-
+Route::get('dashboard',);
 require __DIR__.'/auth.php';

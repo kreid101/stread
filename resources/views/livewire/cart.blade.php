@@ -15,7 +15,6 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </button>
-
                                 {{$item['quant']}}
                                 <button wire:click="incr({{$key}})"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -26,10 +25,7 @@
                         <div>{{$item['price'] * $item['quant']}}</div>
                     </div>
                 @endforeach
-
         </div>
-
-
     </div>
     <div  class="absolute w-screen h-screen top-0 bg-black/70 transition-all z-10 lg:hidden" :class="cart_modal ? 'right-0' : 'right-[-100vw]'">
         <div class="bg-white w-5/6 h-full ml-auto">
@@ -51,7 +47,6 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </button>
-
                                 {{$item['quant']}}
                                 <button wire:click="incr({{$key}})"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />

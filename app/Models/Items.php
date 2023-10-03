@@ -33,12 +33,17 @@ class Items extends Model
     {
         return $this->belongsToMany(Categories::class,'item_categories','item_id','category_id');
     }
+    public function about()
+    {
+        return $this->hasOne(AboutItem::class,'item_id','id');
+    }
     public function toSearchableArray()
     {
-        return [
-            'name' => $this->item_name,
-            'brand'=>$this->brand()
-        ];
+        $col = $this->toArray();
+        $item=[$col['item_name'],$col['brand']['brand_name']];
+        return $item;
+
     }
+
 
 }

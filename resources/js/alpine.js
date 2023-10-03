@@ -2,6 +2,9 @@ import Alpine from "alpinejs";
 
 window.Alpine = Alpine
 
+Alpine.store('user',{
+    user:{}
+})
 Alpine.store('headerDropdown', {
     brands: false,
     mens: false,
