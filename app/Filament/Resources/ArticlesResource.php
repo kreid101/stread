@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BrandsResource\Pages;
-use App\Filament\Resources\BrandsResource\RelationManagers;
-use App\Models\Brands;
+use App\Filament\Resources\ArticlesResource\Pages;
+use App\Filament\Resources\ArticlesResource\RelationManagers;
+use App\Models\Article;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BrandsResource extends Resource
+class ArticlesResource extends Resource
 {
-    protected static ?string $model = Brands::class;
+    protected static ?string $model = Article::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -23,9 +23,10 @@ class BrandsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('brand_name'),
-                Forms\Components\MarkdownEditor::make('brand_desc'),
-                Forms\Components\FileUpload::make('brand_logo')->preserveFilenames()
+                Forms\Components\TextInput::make('headline'),
+                Forms\Components\FileUpload::make('art_prev'),
+                Forms\Components\RichEditor::make('content'),
+
             ]);
     }
 
@@ -33,7 +34,7 @@ class BrandsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('brand_name')
+                //
             ])
             ->filters([
                 //
@@ -56,9 +57,9 @@ class BrandsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrands::route('/'),
-            'create' => Pages\CreateBrands::route('/create'),
-            'edit' => Pages\EditBrands::route('/{record}/edit'),
+            'index' => Pages\ListArticles::route('/'),
+            'create' => Pages\CreateArticles::route('/create'),
+            'edit' => Pages\EditArticles::route('/{record}/edit'),
         ];
     }
 }

@@ -1,4 +1,4 @@
-<div  class="flex items-center ml-8">
+<div  class="flex items-center ml-8 h-full">
     <ul class="flex gap-2 h-full items-center">
         <li class="transition-all" :class="$store.headerDropdown.mens ? 'bg-stone-200' : ''" @mouseenter="$store.headerDropdown.mens=true" @mouseleave="$store.headerDropdown.mens=false">
             <a class="w-full h-full flex items-center px-4" href="">Мужское</a>
@@ -18,8 +18,8 @@
                 <x-brands-dropdown-menu></x-brands-dropdown-menu>
             </div>
         </li>
-        <li class="transition-all" :class="$store.headerDropdown.brands ? 'bg-stone-200' : ''" @mouseover="$store.headerDropdown.brands=true" @mouseleave="$store.headerDropdown.brands=false">
-            <a class="w-full h-full flex items-center px-4" href="">Блог</a>
+        <li class="transition-all hover:bg-stone-200">
+            <a class="w-full h-full flex items-center px-4" href="/blog">Блог</a>
         </li>
     </ul>
 </div>

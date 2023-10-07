@@ -2,7 +2,7 @@
     <div class="w-4/6 py-4">
         <input class=" w-full bg-gray-100 h-8 px-4" wire:model.debounce.300ms="search_input" placeholder="Поиск">
     </div>
-<div class="flex gap-2" >
+<div class="grid grid-cols-4 gap-2 mx-10" >
     @if($this->results())
     @foreach($this->results() as $r)
             <div >
